@@ -5,13 +5,20 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<header>
-    <div class="top-nav">
-        <a class="active" href="home.php">Home</a>
-        <a href="resumes.php">Resumes</a>
-        <a href="about.php">About</a>
-        <a href="admin.php">Admin Login</a>
-    </div>
-</header>
+<div class="header-wrap">
+    <header class="main">
+        <a class="logo"><img src="images/Banner.png" alt="Logo banner" width=500 height=100></a>
+        <div class="background-image">
+            <div class="header-container">
+                <div class="top-nav">
+                    <a href="home.php">Home</a>
+                    <a href="resumes.php">Resumes</a>
+                    <a href="about.php">About</a>
+                    <a href="admin.php">Admin Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
 </body>
 </html>
