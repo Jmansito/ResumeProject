@@ -21,30 +21,29 @@
                         <img src="images/resume-art.png" alt="Resume Image" loading="lazy" width="500" style="width: 500px">
                     </figure>
                 </div>
-                <div class="title-wrapper">
-                    <h2>All Features Of This Project</h2>
-                </div>
-                <div class="features-list-wrap">
-                    <ul class="feature-list" style="list-style-image:url('images/green-check.png') ">
-                        <li>
-                            <p>Navigation Bar Integration</p>
-                        </li>
-                        <li>
-                            <p>Password Protected Admin Login</p>
-                        </li>
-                        <li>
-                            <p>Database Manipulation And Display</p>
-                        </li>
-                        <li>
-                            <p>Resume Creation</p>
-                        </li>
-                    </ul>
-                </div>
-            </article>
 
+            </article>
         </div>
     </div>
-
+    <div class="title-wrapper">
+        <h2>All Features Of This Project</h2>
+    </div>
+    <div class="features-list-wrap">
+        <ul class="feature-list" style="list-style-image:url('images/green-check.png') ">
+            <li>
+                <p>Navigation Bar Integration</p>
+            </li>
+            <li>
+                <p>Password Protected Admin Login</p>
+            </li>
+            <li>
+                <p>Database Manipulation And Display</p>
+            </li>
+            <li>
+                <p>Resume Creation</p>
+            </li>
+        </ul>
+    </div>
     </body>
     </html>
 <?php include 'footer.php'; ?>

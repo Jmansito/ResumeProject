@@ -133,6 +133,30 @@ ul.feature-list{
     font-family: Georgia, serif;
     font-weight: bold;
 }
+.main-page .goals-list{
+    flex-wrap: wrap;
+}
+
+
+div.goals-list-wrap{
+    text-align: left;
+}
+
+ul.goals-list h3{
+    font-size: 23px;
+    text-decoration: underline;
+    color: steelblue !important;
+}
+
+ul.goals-list{
+    display: inline-block;
+    text-align: left;
+    list-style-image: url("images/green-check.png");
+    padding-inline-start: 0;
+    font-size: 16px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
 
 /* Pattern styles */
 .left-half {
@@ -147,5 +171,4 @@ ul.feature-list{
     width: 50%;
     padding-bottom: 20px;
 }
-
 
