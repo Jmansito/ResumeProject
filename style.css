@@ -134,4 +134,18 @@ ul.feature-list{
     font-weight: bold;
 }
 
+/* Pattern styles */
+.left-half {
+    background-color: steelblue;
+    float: left;
+    width: 50%;
+    padding-bottom: 20px;
+}
+.right-half {
+    background-color: cornflowerblue;
+    float: left;
+    width: 50%;
+    padding-bottom: 20px;
+}
+
 
