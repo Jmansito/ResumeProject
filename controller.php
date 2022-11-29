@@ -5,10 +5,11 @@ require('resume_form.php');
 
 $action = filter_input (INPUT_POST, 'action');
 if ($action == NULL) {
-    $action = filter_input (INPUT_GET, 'action');
-    if ($action == NULL) {
-        $action = 'list_applicants';
-    }
+    exit;
+    //$action = filter_input (INPUT_GET, 'action');
+   // if ($action == NULL) {
+     //   $action = 'list_applicants';
+    //}
 }
 
 if($action == 'list_applicants'){
@@ -38,10 +39,12 @@ else if($action == 'add_resume'){
 
     if($f_name == NULL ||$l_name == NULL || $dob == NULL || $email == NULL || $phone_number == NULL||
     $previous_job == NULL || $previous_job_desc == NULL || $previous_job_sd == NULL || $previous_job_ed == NULL){
-        echo "ERROR, CHECK CALUES AND TRY AGAIN";
-    } else {
+        echo "ERROR, CHECK VALUES AND TRY AGAIN";
+    }
+    else {
         add_resume($f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
             $previous_job_ed, $skill1, $skill2, $skill3, $profile_pic, $resume_pdf);
+       // header('Location: resume.php');
     }
 }
 
