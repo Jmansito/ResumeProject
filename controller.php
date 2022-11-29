@@ -5,11 +5,10 @@ require('resume_form.php');
 
 $action = filter_input (INPUT_POST, 'action');
 if ($action == NULL) {
-    exit;
-    //$action = filter_input (INPUT_GET, 'action');
-   // if ($action == NULL) {
-     //   $action = 'list_applicants';
-    //}
+    $action = filter_input (INPUT_GET, 'action');
+    if ($action == NULL) {
+        $action = 'list_applicants';
+    }
 }
 
 if($action == 'list_applicants'){
@@ -37,15 +36,17 @@ else if($action == 'add_resume'){
     $profile_pic = filter_input(INPUT_POST, 'profile_pic' );
     $resume_pdf = filter_input(INPUT_POST, 'resume_pdf' );
 
-    if($f_name == NULL ||$l_name == NULL || $dob == NULL || $email == NULL || $phone_number == NULL||
-    $previous_job == NULL || $previous_job_desc == NULL || $previous_job_sd == NULL || $previous_job_ed == NULL){
-        echo "ERROR, CHECK VALUES AND TRY AGAIN";
-    }
-    else {
+    //TODO FIX ERROR HANDLING -- This if statement was blocking it. Current code is adding resume to database.
+
+//    if($f_name == NULL ||$l_name == NULL || $dob == NULL || $email == NULL || $phone_number == NULL||
+//    $previous_job == NULL || $previous_job_desc == NULL || $previous_job_sd == NULL || $previous_job_ed == NULL){
+//        echo "ERROR, CHECK VALUES AND TRY AGAIN";
+//    }
+//    else {
         add_resume($f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
             $previous_job_ed, $skill1, $skill2, $skill3, $profile_pic, $resume_pdf);
-       // header('Location: resume.php');
-    }
+        header('Location: home.php');
+//    }
 }
 
 else if ($action == 'login') {

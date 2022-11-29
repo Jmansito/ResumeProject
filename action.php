@@ -19,7 +19,7 @@ function add_resume($f_name, $l_name,$dob, $email, $phone_number, $previous_job,
                     $previous_job_ed, $skill1, $skill2, $skill3, $profile_pic, $resume_pdf){
     global $db;
 
-    $query = 'INSERT INTO Resume
+    $query = 'INSERT INTO `Resume`
           (Resume.f_name, Resume.l_name, Resume.dob, Resume.email,
                Resume.phone_number, Resume.previous_job, Resume.previous_job_desc,
                Resume.previous_job_sd, Resume.previous_job_ed, Resume.skill1,

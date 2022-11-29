@@ -8,11 +8,6 @@
 
     <!-- the body section -->
     <body>
-    Resume.f_name, Resume.l_name, Resume.dob, Resume.email,
-    Resume.phone_number, Resume.previous_job, Resume.previous_job_desc,
-    Resume.previous_job_sd, Resume.previous_job_ed, Resume.skill1,
-    Resume.skill2, Resume.skill3, Resume.profile_pic, Resume.resume_pdf)
-
     <h1>List of applicants</h1>
     <section>
         <!-- display a table of applicants -->
