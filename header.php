@@ -14,7 +14,7 @@
                     <a href="home.php">Home</a>
                     <a href="resumes.php">Resumes</a>
                     <a href="about.php">About</a>
-                    <a href="admin.php">Login</a>
+                    <a href="login.php">Login</a>
                 </div>
             </div>
         </div>
