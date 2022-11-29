@@ -1,6 +1,7 @@
 <?php
 require('database.php');
 require('action.php');
+require('resume_form.php');
 
 $action = filter_input (INPUT_POST, 'action');
 if ($action == NULL) {
@@ -17,8 +18,9 @@ if($action == 'list_applicants'){
     include('applicants_list.php');
 }
 
-// add_employee action from resume form
+//
 else if($action == 'add_resume'){
+
     $f_name = filter_input(INPUT_POST, 'f_name');
     $l_name = filter_input(INPUT_POST, 'l_name');
     $dob = filter_input(INPUT_POST, 'dob');
