@@ -15,20 +15,21 @@ function get_categories(){
     $statement->closeCursor();
     return $applicants;
 }
-function add_resume($f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
+function add_resume($user_name,$f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
                     $previous_job_ed, $skill1, $skill2, $skill3, $profile_pic, $resume_pdf){
     global $db;
 
     $query = 'INSERT INTO `Resume`
-          (Resume.f_name, Resume.l_name, Resume.dob, Resume.email,
+          (Resume.user_name, Resume.f_name, Resume.l_name, Resume.dob, Resume.email,
                Resume.phone_number, Resume.previous_job, Resume.previous_job_desc,
                Resume.previous_job_sd, Resume.previous_job_ed, Resume.skill1,
                Resume.skill2, Resume.skill3, Resume.profile_pic, Resume.resume_pdf)
             VALUES
-                (:f_name, :l_name, :dob, :email, :phone_number, :previous_job,
+                (:user_name, :f_name, :l_name, :dob, :email, :phone_number, :previous_job,
                     :previous_job_desc, :previous_job_sd, :previous_job_ed,
                     :skill1, :skill2, :skill3, :profile_pic, :resume_pdf)';
     $statement = $db->prepare($query);
+    $statement->bindValue('user_name', $user_name);
     $statement->bindValue('f_name', $f_name);
     $statement->bindValue('l_name', $l_name);
     $statement->bindValue('dob', $dob);

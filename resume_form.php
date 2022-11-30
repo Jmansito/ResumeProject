@@ -8,15 +8,20 @@
 <body>
     <main>
         <h2>Add User Resume Details</h2>
-        <form action="controller.php" method="post" id="add_resume">
-            <input type= "hidden" name="action" value="add_resume">
+        <form action="controller.php" method="post" id="add_resume_form" enctype="multipart/form-data">
+            <input type= "hidden" name="action" value="add_resume_form">
+            <p>
+                <label for="user_name">User Name:
+                    <input type="text" name ="user_name">
+                </label>
+            </p>
             <p>
                 <label for="first_name">First Name:
                     <input type="text" name ="f_name">
                 </label>
             </p>
             <p>
-                <label for="last_name">First Name:
+                <label for="last_name">Last Name:
                     <input type="text" name ="l_name">
                 </label>
             </p>
@@ -81,6 +86,7 @@
                 </label>
             </p>
             <input type="submit" value="Add Resume" />
+
         </form>
     </main>
 </html>
