@@ -29,6 +29,18 @@
                     <input type="text" class="login_input" name="l_name" />
                     <label for="" class="login_label">Last Name</label>
                 </div>
+                <div class="login_div">
+                    <input type="date" class="login_input" name="dob" />
+                    <label for="" class="login_label">Date Of Birth</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name="email" />
+                    <label for="" class="login_label">Email</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name="phone_number" />
+                    <label for="" class="login_label">Phone Number</label>
+                </div>
                 <input type="submit" class="login_button" value="Register" />
                 <p class="login_link">Already have an account? <a href=login.php>Log in</a></p>
             </form>
