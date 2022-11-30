@@ -62,18 +62,18 @@ function get_user($user_id) {
 }
 
 
-function add_user($user_name, $password, $name, $interest) {
+function add_user($user_name, $password, $f_name, $l_name) {
     global $db;
     $_password = password_hash ($password, PASSWORD_BCRYPT);
     $query = 'INSERT INTO user
-                 (user_name, password, name, interest)
+                 (user_name, password, f_name, l_name)
               VALUES
-                 (:user_name, :password, :name, :interest)';
+                 (:user_name, :password, :f_name, :l_name)';
     $statement = $db->prepare($query);
     $statement->bindValue(':user_name', $user_name);
     $statement->bindValue(':password', $_password);
-    $statement->bindValue(':name', $name);
-    $statement->bindValue(':interest', $interest);
+    $statement->bindValue(':f_name', $f_name);
+    $statement->bindValue(':l_name', $l_name);
     $statement->execute();
     $id = $db->lastInsertId();
     $statement->closeCursor();

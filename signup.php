@@ -8,9 +8,9 @@
     </head>
     <body>
     <main>
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form action="." method="post" id="add_product_form">
-            <input type="hidden" name="action" value="login">
+            <input type="hidden" name="action" value="register">
 
             <p>
                 <label>User Name:
@@ -22,17 +22,24 @@
                     <input type="password" name="password" />
                 </label>
             </p>
+            <p>
+                <label>First Name:
+                    <input type="text" name="f_name" />
+                </label>
+            </p>
+            <p>
+                <label>Last Name:
+                    <input type="text" name="l_name" />
+                </label>
+            </p>
 
-            <label>
-                <input type="submit" value="Login" />
-            </label>
+            <label>&nbsp;</label>
+            <input type="submit" value="Register" />
             <br>
-        </form>
-        <p>Don't have an account? <a href="signup.php">Sign up</a></p>
 
+        </form>
+        <p>Already have an account? <a href="login.php">Log in</a></p>
 
     </main>
     </body>
-
-
 <?php include 'footer.php'; ?>

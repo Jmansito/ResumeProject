@@ -69,9 +69,23 @@ else if ($action == 'login') {
     $pass = is_valid_user($user, $password);
     if ($pass) {
         $_SESSION['is_valid'] = true;
-        header ("Location: .");
+        header ("Location: home.php");
     }
     else {
-        include ('../view/login_form.php');
+        include ('login.php');
     }
+}
+else if ($action == 'register') {
+    $user_name = filter_input(INPUT_POST, 'user_name');
+    $password = filter_input(INPUT_POST, 'password');
+    $f_name = filter_input(INPUT_POST, 'f_name');
+    $l_name = filter_input(INPUT_POST, 'l_name');
+
+    $id = add_user($user_name, $password, $f_name, $l_name);
+    $name='UserName';
+    $value=$id;
+    $expiration = time()+(60*60*24*7);
+    setcookie($name, $value, $expiration);
+    header("Location: home.php");
+
 }
