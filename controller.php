@@ -78,8 +78,6 @@ else if ($action == 'login') {
     }
 }
 else if ($action == 'register') {
-    include 'database.php';
-
     $user_name = filter_input(INPUT_POST, 'user_name');
     $password = filter_input(INPUT_POST, 'password');
     $f_name = filter_input(INPUT_POST, 'f_name');
@@ -88,11 +86,16 @@ else if ($action == 'register') {
     $email = filter_input(INPUT_POST, 'email');
     $phone_number = filter_input(INPUT_POST, 'phone_number');
 
-    $id = add_user($user_name, $password, $f_name, $l_name, $dob, $email, $phone_number);
-    $name='UserName';
-    $value=$id;
-    $expiration = time()+(60*60*24*7);
-    setcookie($name, $value, $expiration);
-    header("Location: ../home.php");
+    add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $password);
+
+    // ADD THIS BACK ONCE IT IS WORKING
+
+//    $id = add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $password);
+//    $name='UserName';
+//    $value=$id;
+//    $expiration = time()+(60*60*24*7);
+//    setcookie($name, $value, $expiration);
+
+    header("Location: ../ResumeProject/login.php");
 
 }

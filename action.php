@@ -62,22 +62,29 @@ function get_user($user_id) {
 }
 
 
-function add_user($user_name, $password, $f_name, $l_name, $dob, $email, $phone_number) {
+function add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $password) {
     global $db;
     $hashed_password = password_hash ($password, PASSWORD_BCRYPT);
-    $query = 'INSERT INTO users
-                 (user_name, f_name, l_name, dob, email, phone_number, password)
-              VALUES
-                 (:user_name, :f_name, :l_name, :dob, :email, :phone_number, :password)';
+    $data = [
+        'user_name' => $user_name,
+        'f_name' => $f_name,
+        'l_name' => $l_name,
+        'dob' => $dob,
+        'email' => $email,
+        'phone_number' => $phone_number,
+        'password' => $hashed_password,
+    ];
+    $query = "INSERT INTO users (user_name, f_name, l_name, dob, email, phone_number, password) 
+                VALUES (:user_name, :f_name, :l_name, :dob, :email, :phone_number, :password)";
     $statement = $db->prepare($query);
-    $statement->bindValue(':user_name', $user_name);
-    $statement->bindValue(':f_name', $f_name);
-    $statement->bindValue(':l_name', $l_name);
-    $statement->bindValue(':dob', $dob);
-    $statement->bindValue(':email', $email);
-    $statement->bindValue(':phone_number', $phone_number);
-    $statement->bindValue(':password', $hashed_password);
-    $statement->execute();
+//    $statement->bindValue(':user_name', $user_name);
+//    $statement->bindValue(':f_name', $f_name);
+//    $statement->bindValue(':l_name', $l_name);
+//    $statement->bindValue(':dob', $dob);
+//    $statement->bindValue(':email', $email);
+//    $statement->bindValue(':phone_number', $phone_number);
+//    $statement->bindValue(':password', $hashed_password);
+    $statement->execute($data);
     $id = $db->lastInsertId();
     $statement->closeCursor();
     return $id;
