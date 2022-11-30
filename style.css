@@ -211,6 +211,21 @@ ul.goals-list{
     word-break: break-word;
 }
 
+.title-register{
+    text-align: center;
+    position: relative;
+    padding-bottom: 0;
+    padding-top: 16px;
+    color: #202124;
+    font-size: 32px;
+    font-family: Georgia, serif;
+    font-weight: 400;
+    line-height: 1.3333;
+    margin-bottom: 16px;
+    margin-top: 0;
+    word-break: break-word;
+}
+
 .login_div {
     position: relative;
     height: 45px;
@@ -221,7 +236,7 @@ ul.goals-list{
 .login_input {
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: 10px;
     height: 100%;
     width: 100%;
     border: 1px solid #DADCE0;
@@ -261,7 +276,10 @@ ul.goals-list{
 
 .login_button {
     display: block;
-    padding: 15px 125px;
+    position: relative;
+    margin-left: 10px;
+    width: 90%;
+    padding: 15px 80px;
     border: none;
     background-color: cornflowerblue;
     color: white;
@@ -280,4 +298,6 @@ ul.goals-list{
     font-weight: bold;
     font-size: 12px;
     font-family: Georgia, serif;
+    padding-left: 10px;
+    padding-top: 5px;
 }

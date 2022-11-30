@@ -3,43 +3,40 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Add Resume Form</title>
+        <title>Register</title>
         <link rel="stylesheet" href="style.css" />
     </head>
-    <body>
-    <main>
-        <h1>Register</h1>
-        <form action="." method="post" id="add_product_form">
-            <input type="hidden" name="action" value="register">
+    <body class="login_body">
+    <div class="login_form">
+        <div class="login-wrapper">
+            <form class="form_login" action="." method="post" id="add_product_form">
+                <h1 class="title-register">Create your account</h1>
+                <input class="login_input" type="hidden" name="action" value="register">
 
-            <p>
-                <label>User Name:
-                    <input type="text" name="user_name" />
-                </label>
-            </p>
-            <p>
-                <label>Password:
-                    <input type="password" name="password" />
-                </label>
-            </p>
-            <p>
-                <label>First Name:
-                    <input type="text" name="f_name" />
-                </label>
-            </p>
-            <p>
-                <label>Last Name:
-                    <input type="text" name="l_name" />
-                </label>
-            </p>
+                <div class="login_div">
+                    <input type="text" class="login_input" name="user_name" />
+                    <label for="" class="login_label">Username</label>
+                </div>
+                <div class="login_div">
+                    <input type="password" class="login_input" name="password" />
+                    <label for="" class="login_label">Password</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name="f_name" />
+                    <label for="" class="login_label">First Name</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name="l_name" />
+                    <label for="" class="login_label">Last Name</label>
+                </div>
+                <input type="submit" class="login_button" value="Register" />
+                <p class="login_link">Already have an account? <a href=login.php>Log in</a></p>
+            </form>
 
-            <label>&nbsp;</label>
-            <input type="submit" value="Register" />
-            <br>
+        </div>
 
-        </form>
-        <p>Already have an account? <a href="login.php">Log in</a></p>
+    </div>
 
-    </main>
     </body>
+
 <?php include 'footer.php'; ?>

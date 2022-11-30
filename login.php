@@ -3,7 +3,7 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Add Resume Form</title>
+        <title>Login Form</title>
         <link rel="stylesheet" href="style.css" />
     </head>
     <body class="login_body">
