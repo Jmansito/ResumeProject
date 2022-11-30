@@ -62,18 +62,21 @@ function get_user($user_id) {
 }
 
 
-function add_user($user_name, $password, $f_name, $l_name) {
+function add_user($user_name, $password, $f_name, $l_name, $dob, $email, $phone_number) {
     global $db;
-    $_password = password_hash ($password, PASSWORD_BCRYPT);
-    $query = 'INSERT INTO user
-                 (user_name, password, f_name, l_name)
+    $hashed_password = password_hash ($password, PASSWORD_BCRYPT);
+    $query = 'INSERT INTO users
+                 (user_name, f_name, l_name, dob, email, phone_number, password)
               VALUES
-                 (:user_name, :password, :f_name, :l_name)';
+                 (:user_name, :f_name, :l_name, :dob, :email, :phone_number, :password)';
     $statement = $db->prepare($query);
     $statement->bindValue(':user_name', $user_name);
-    $statement->bindValue(':password', $_password);
     $statement->bindValue(':f_name', $f_name);
     $statement->bindValue(':l_name', $l_name);
+    $statement->bindValue(':dob', $dob);
+    $statement->bindValue(':email', $email);
+    $statement->bindValue(':phone_number', $phone_number);
+    $statement->bindValue(':password', $hashed_password);
     $statement->execute();
     $id = $db->lastInsertId();
     $statement->closeCursor();
@@ -81,12 +84,12 @@ function add_user($user_name, $password, $f_name, $l_name) {
 }
 
 
-function is_valid_user($user, $password) {
+function is_valid_user($user_name, $password) {
     global $db;
-    $query = 'select password from users
-              where user = :user';
+    $query = 'select user_name, password from users
+              where user_name = :user_name';
     $statement = $db->prepare($query);
-    $statement->bindValue(':user', $user);
+    $statement->bindValue(':user_name', $user_name);
     $statement->execute();
     $row = $statement->fetch();
     $statement->closeCursor();

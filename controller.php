@@ -64,28 +64,35 @@ else if($action == 'add_resume_form'){
 }
 
 else if ($action == 'login') {
-    $user = filter_input(INPUT_POST, 'user_name');
+    $user_name = filter_input(INPUT_POST, 'user_name');
     $password = filter_input(INPUT_POST, 'password');
-    $pass = is_valid_user($user, $password);
+    $pass = is_valid_user($user_name, $password);
     if ($pass) {
         $_SESSION['is_valid'] = true;
-        header ("Location: home.php");
+        echo"worked";
+//        header ("Location: /ResumeProject/home.php");
     }
     else {
-        include ('login.php');
+        echo"didnt work";
+//        include ('login.php');
     }
 }
 else if ($action == 'register') {
+    include 'database.php';
+
     $user_name = filter_input(INPUT_POST, 'user_name');
     $password = filter_input(INPUT_POST, 'password');
     $f_name = filter_input(INPUT_POST, 'f_name');
     $l_name = filter_input(INPUT_POST, 'l_name');
+    $dob = filter_input(INPUT_POST, 'dob');
+    $email = filter_input(INPUT_POST, 'email');
+    $phone_number = filter_input(INPUT_POST, 'phone_number');
 
-    $id = add_user($user_name, $password, $f_name, $l_name);
+    $id = add_user($user_name, $password, $f_name, $l_name, $dob, $email, $phone_number);
     $name='UserName';
     $value=$id;
     $expiration = time()+(60*60*24*7);
     setcookie($name, $value, $expiration);
-    header("Location: home.php");
+    header("Location: ../home.php");
 
 }
