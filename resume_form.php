@@ -13,10 +13,6 @@
                 <h1 class="title-register">Please fill out the new resume template</h1>
                 <input class="login_input" type= "hidden" name="action" value="add_resume_form">
                 <div class="login_div">
-                    <input type="text" class="login_input" name ="user_name">
-                    <label for="" class="login_label">Username</label>
-                </div>
-                <div class="login_div">
                     <input type="text" class="login_input" name ="f_name">
                     <label for="" class="login_label">First Name</label>
                 </div>

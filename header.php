@@ -15,7 +15,10 @@
                     <a href="resumes.php">Resumes</a>
                     <a href="about.php">About</a>
                     <?php
-                    session_start();
+                    if(!isset($_SESSION))
+                    {
+                        session_start();
+                    }
                     if(!isset($_SESSION['username'])) : ?>
                         <a href="login.php">Login</a>
                     <?php else : ?>
