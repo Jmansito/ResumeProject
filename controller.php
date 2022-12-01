@@ -81,15 +81,4 @@ else if ($action == 'register') {
         header('Location: home.php');
     }
 
-
-
-    // ADD THIS BACK ONCE IT IS WORKING
-
-//    $id = add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $password);
-//    $name='UserName';
-//    $value=$id;
-//    $expiration = time()+(60*60*24*7);
-//    setcookie($name, $value, $expiration);
-//    header("Location: ../ResumeProject/login.php");
-
 }
