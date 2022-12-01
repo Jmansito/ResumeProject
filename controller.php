@@ -69,12 +69,11 @@ else if ($action == 'login') {
     $pass = is_valid_user($user_name, $password);
     if ($pass) {
         $_SESSION['is_valid'] = true;
-        echo"worked";
-//        header ("Location: /ResumeProject/home.php");
+        header ("Location: home.php");
     }
     else {
         echo"didnt work";
-//        include ('login.php');
+        include ('login.php');
     }
 }
 else if ($action == 'register') {
@@ -85,8 +84,15 @@ else if ($action == 'register') {
     $dob = filter_input(INPUT_POST, 'dob');
     $email = filter_input(INPUT_POST, 'email');
     $phone_number = filter_input(INPUT_POST, 'phone_number');
+    if($user_name == NULL || $password == NULL || $f_name == NULL || $l_name == NULL
+        || $dob == NULL || $email == NULL || $phone_number == NULL){
+        echo "Invalid employee data. Check all fields and try again.";
+    } else {
+        add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $password);
+        header('Location: home.php');
+    }
 
-    add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $password);
+
 
     // ADD THIS BACK ONCE IT IS WORKING
 
@@ -95,7 +101,6 @@ else if ($action == 'register') {
 //    $value=$id;
 //    $expiration = time()+(60*60*24*7);
 //    setcookie($name, $value, $expiration);
-
-    header("Location: ../ResumeProject/login.php");
+//    header("Location: ../ResumeProject/login.php");
 
 }

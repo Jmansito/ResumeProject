@@ -9,7 +9,7 @@
     <body class="login_body">
     <div class="login_form">
         <div class="login-wrapper">
-            <form class="form_login" action="." method="post" id="signup">
+            <form class="form_login" action="controller.php" method="post" id="signup">
                 <h1 class="title-register">Create your account</h1>
                 <input class="login_input" type="hidden" name="action" value="register">
 
