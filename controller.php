@@ -47,7 +47,18 @@ else if($action == 'add_resume_form'){
     $tmp = $_FILES['resume_pdf']['tmp_name'];
     $path = getcwd() . DIRECTORY_SEPARATOR . 'images';
     $name = $path . DIRECTORY_SEPARATOR . $_FILES['resume_pdf']['name'];
+    $success = move_uploaded_file($tmp, $name);
     //imagejpeg($resume_pdf, '/images/');
+
+    global $db;
+    $user_id = 2;
+    //$user_id = 'SELECT  `id`
+    //           FROM `users`
+     //           WHERE  ';
+    //$statement = $db->prepare($user_id);
+    //$statement->bindValue(':id', $user_id);
+    //$statement->execute();
+    //$statement->closeCursor();
 
 
     //TODO FIX ERROR HANDLING -- This if statement was blocking it. Current code is adding resume to database.
@@ -57,9 +68,14 @@ else if($action == 'add_resume_form'){
         echo "ERROR, CHECK VALUES AND TRY AGAIN";
     }
     else {
-        add_resume($user_name, $f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
+        //$image1 = file_get_contents("$resume_pdf");
+        //file_put_contents('images/resume.png',$image1);
+        add_resume($user_name, $user_id,$f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
             $previous_job_ed, $skill1, $skill2, $skill3, $profile_pic, $resume_pdf);
         header('Location: home.php');
+
+
+
     }
 }
 

@@ -83,7 +83,7 @@
             </p>
             <p>
                 <label for="resume_pdf">Resume PDF:
-                    <input type="file" name ="resume_pdf">
+                    <input type="file" name ="resume_pdf" >
                 </label>
             </p>
             <input type="submit" value="Add Resume" />
