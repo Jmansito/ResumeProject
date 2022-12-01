@@ -1,7 +1,7 @@
 <?php
 $dsn = 'mysql:host=localhost; dbname=resume_website';
-$username = 'root';
-$password = 'Coyote.460';
+$username = 'admin';
+$password = 'y7JY6rJGwfhufKZ';
 
 //  Connecting using PDO object from class.
 $db = new PDO($dsn, $username, $password);

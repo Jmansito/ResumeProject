@@ -6,90 +6,78 @@
     <title>Add Resume Form</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <main>
-        <h2>Add User Resume Details</h2>
-        <form action="controller.php" method="post" id="add_resume_form" enctype="multipart/form-data">
-            <input type= "hidden" name="action" value="add_resume_form">
-            <p>
-                <label for="user_name">User Name:
-                    <input type="text" name ="user_name">
-                </label>
-            </p>
-            <p>
-                <label for="first_name">First Name:
-                    <input type="text" name ="f_name">
-                </label>
-            </p>
-            <p>
-                <label for="last_name">Last Name:
-                    <input type="text" name ="l_name">
-                </label>
-            </p>
-            <p>
-                <label for="date_of_birth">Date Of Birth:
-                    <input type="date" name ="dob">
-                </label>
-            </p>
-            <p>
-                <label for="email_address">Email:
-                    <input type="text" name ="email">
-                </label>
-            </p>
-            <p>
-                <label for="phone_number">Phone Number:
-                    <input type="text" name ="phone_number">
-                </label>
-            </p>
-            <p>
-                <label for="previous_job">Previous Job:
-                    <input type="text" name ="previous_job">
-                </label>
-            </p>
-            <p>
-                <label for="prev_job_desc">Previous Job Description:
-                    <input type="text" name ="previous_job_desc">
-                </label>
-            </p>
-            <p>
-                <label for="previous_job_sd">Previous Job Start Date:
-                    <input type="date" name ="previous_job_sd">
-                </label>
-            </p>
-            <p>
-                <label for="previous_job_ed">Previous Job End Date:
-                    <input type="date" name ="previous_job_ed">
-                </label>
-            </p>
-            <p>
-                <label for="skill1">Skill 1:
-                    <input type="text" name ="skill1">
-                </label>
-            </p>
-            <p>
-                <label for="skill2">Skill 2:
-                    <input type="text" name ="skill2">
-                </label>
-            </p>
-            <p>
-                <label for="skill3">Skill 3:
-                    <input type="text" name ="skill3">
-                </label>
-            </p>
-            <p>
-                <label for="profile_pic">Profile Pic:
-                    <input type="file" name ="profile_pic">
-                </label>
-            </p>
-            <p>
-                <label for="resume_pdf">Resume PDF:
-                    <input type="file" name ="resume_pdf" >
-                </label>
-            </p>
-            <input type="submit" value="Add Resume" />
+<body class="login_body">
+    <div class="resume_form">
+        <div class="login-wrapper">
+            <form class="form_login" action="controller.php" method="post" id="add_resume_form" enctype="multipart/form-data">
+                <h1 class="title-register">Please fill out the new resume template</h1>
+                <input class="login_input" type= "hidden" name="action" value="add_resume_form">
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="user_name">
+                    <label for="" class="login_label">Username</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="f_name">
+                    <label for="" class="login_label">First Name</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="l_name">
+                    <label for="" class="login_label">Last Name</label>
+                </div>
+                <div class="login_div">
+                    <input type="date" class="login_input" name ="dob">
+                    <label for="" class="login_label">Date Of Birth</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="email">
+                    <label for="" class="login_label">Email</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="phone_number">
+                    <label for="" class="login_label">Phone Number</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="previous_job">
+                    <label for="" class="login_label">Previous Job</label>
+                </div>
+                <div class="job_desc_div">
+                    <input type="text" class="login_input" name ="previous_job_desc">
+                    <label for="" class="login_label">Previous Job Description</label>
+                </div>
+                <div class="login_div">
+                    <input type="date" class="login_input" name ="previous_job_sd">
+                    <label for="" class="login_label">Previous Job Start Date</label>
+                </div>
+                <div class="login_div">
+                    <input type="date" class="login_input" name ="previous_job_ed">
+                    <label for="" class="login_label">Previous Job End Date</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="skill1">
+                    <label for="" class="login_label">Skill 1</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="skill2">
+                    <label for="" class="login_label">Skill 2</label>
+                </div>
+                <div class="login_div">
+                    <input type="text" class="login_input" name ="skill3">
+                    <label for="" class="login_label">Skill 3</label>
+                </div>
+                <div class="file_div">
+                    <input type="file" class="file_input" name ="profile_pic">
+                    <label for="" class="file_label">Profile Picture</label>
+                </div>
+                <div class="file_div">
+                    <input type="file" class="file_input" name ="resume_pdf" >
+                    <label for="" class="file_label">Resume PDF</label>
+                </div>
+                <input type="submit" class="login_button" value="Add Resume" />
 
-        </form>
-    </main>
+            </form>
+        </div>
+
+    </div>
 </html>
 
 <?php include 'footer.php'; ?>
