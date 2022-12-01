@@ -1,5 +1,9 @@
-<?php include 'header.php';
-
+<?php include 'header.php'; ?>
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header("Location:login.php");
+}
 ?>
 <main>
     <h1>Resumes in the DB</h1>

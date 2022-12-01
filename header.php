@@ -14,7 +14,13 @@
                     <a href="home.php">Home</a>
                     <a href="resumes.php">Resumes</a>
                     <a href="about.php">About</a>
-                    <a href="login.php">Login</a>
+                    <?php
+                    session_start();
+                    if(!isset($_SESSION['username'])) : ?>
+                        <a href="login.php">Login</a>
+                    <?php else : ?>
+                        <a href="logout.php">Logout</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

@@ -77,13 +77,6 @@ function add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $pa
     $query = "INSERT INTO users (user_name, f_name, l_name, dob, email, phone_number, password) 
                 VALUES (:user_name, :f_name, :l_name, :dob, :email, :phone_number, :password)";
     $statement = $db->prepare($query);
-//    $statement->bindValue(':user_name', $user_name);
-//    $statement->bindValue(':f_name', $f_name);
-//    $statement->bindValue(':l_name', $l_name);
-//    $statement->bindValue(':dob', $dob);
-//    $statement->bindValue(':email', $email);
-//    $statement->bindValue(':phone_number', $phone_number);
-//    $statement->bindValue(':password', $hashed_password);
     $statement->execute($data);
     $id = $db->lastInsertId();
     $statement->closeCursor();
@@ -93,6 +86,7 @@ function add_user($user_name, $f_name, $l_name, $dob, $email, $phone_number, $pa
 
 function is_valid_user($user_name, $password) {
     global $db;
+    session_start();
     $query = 'select user_name, password from users
               where user_name = :user_name';
     $statement = $db->prepare($query);
@@ -102,6 +96,8 @@ function is_valid_user($user_name, $password) {
     $statement->closeCursor();
     if ($row != null) {
         $hash = $row['password'];
+        $_SESSION['username'] = $user_name;
+        $_SESSION['password'] = $hash;
         return password_verify($password, $hash);
     }
     else {
