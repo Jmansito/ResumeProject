@@ -4,12 +4,13 @@ if(!isset($_SESSION['username'])){
     header("Location:login.php");
 }
 ?>
-<main>
-    <h1>Resumes in the DB</h1>
-    <p><button><a href="controller.php?action=add_resume">ADD RESUME</a></button></p>
-    <p><button><a href="controller.php?action=list_applicants">SHOW APPLICANTS TEST</a></button></p>
+<div class="title-wrapper">
+    <!-- Change title of header as needed -->
+    <!-- Still need to style this page -->
+    <h1>Please Select What You Would Like To Do</h1>
+    <p><button class="login_button"><a href="controller.php?action=add_resume">ADD RESUME</a></button></p>
+    <p><button class="login_button"><a href="controller.php?action=list_applicants">SHOW APPLICANTS</a></button></p>
 
+</div>
 
-
-</main>
 <?php include 'footer.php'; ?>
