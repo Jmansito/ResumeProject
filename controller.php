@@ -12,8 +12,6 @@ if ($action == NULL) {
 }
 
 if($action == 'list_applicants'){
-    // default show applicants in the database
-    //TODO finish
     get_categories();
     include('applicants_list.php');
 }
