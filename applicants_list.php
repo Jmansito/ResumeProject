@@ -1,62 +1,50 @@
 <?php include "header.php"; ?>
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
-        <title>Employee Manager</title>
-        <!--    <link rel="stylesheet" href="/MVC/main.css" />-->
-        <link href="style.css?<?=  filemtime( $_SERVER['DOCUMENT_ROOT'] . "style.css" )  ?>" type="text/css" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <title>View Resumes</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
 
     <!-- the body section -->
-    <body>
-    <h1>List of applicants</h1>
-    <section>
-        <!-- display a table of applicants -->
-        <table class = "center">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Date Of Birth</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Previous Job</th>
-                <th>Previous Job Desc</th>
-                <th>previous_job_sd</th>
-                <th>previous_job_ed</th>
-                <th>skill1</th>
-                <th>skill2</th>
-                <th>skill3</th>
-                <th>profile_pic</th>
-                <th>resume_pdf</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-            <tr>
-                <?php $applicants = get_categories();
-                foreach ($applicants as $applicant) : ?>
-                <td><?php echo $applicant['f_name'];?></td>
-<!--                ADD THE REST OF THE FIELDS-->
+    <body class="resume_body">
+    <div>
+        <div>
+                <h1 class="title-register">Available Resumes</h1>
+                <input type= "hidden" name="action" value="add_resume_form">
+                <div class="row">
+                    <?php $applicants = get_categories();
+                    foreach ($applicants as $applicant) : ?>
+                    <div class="column">
+                        <div class="card">
+                            <h3><?php echo $applicant['f_name'];?> <?php echo $applicant['l_name'];?></h3>
+                            <p>DoB: <?php echo $applicant['dob'];?></p>
+                            <p>Email: <?php echo $applicant['email'];?></p>
+                            <p>Phone: <?php echo $applicant['phone_number'];?></p>
+                            <p>Previous Job: <?php echo $applicant['previous_job'];?></p>
+                            <a href="display_pdf.php?var_name=<?php echo $applicant['resume_pdf'] ?>">Full Resume</a>
+                            <p></p>
+                            <form action="controller.php" method="post">
+                                <input type="hidden" name="action" value="show_update_resume">
+                                <input type="hidden" name="user_id" value="<?php echo $applicant['resume_id']; ?>">
+                                <input type="submit" value="Update">
+                            </form>
+                            <p></p>
+                            <form action="controller.php" method="post">
+                                <input type="hidden" name="action" value="delete_resume">
+                                <input type="hidden" name="user_id" value="<?php echo $applicant['resume_id']; ?>">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </div>
+                        <p></p>
+                    </div>
 
-<!--                buttons for admin to edit and delete, implement later -->
+                    <?php endforeach;?>
+                </div>
 
-                <td><form action="." method="post">
-                        <input type="hidden" name="action" value="show_update_applicant">
-                        <input type="hidden" name="EMP_NUM" value="<?php echo $applicant['user']; ?>">
-                        <input type="submit" value="Update">
-                    </form></td>
-                <td><form action="." method="post">
-                        <input type="hidden" name="action" value="delete_applicant">
-                        <input type="hidden" name="EMP_NUM" value="<?php echo $applicant['user']; ?>">
-                        <input type="submit" value="Delete">
-                    </form></td>
-            </tr>
-
-            <?php endforeach;?>
-        </table>
-
-        <p><button><a href="controller.php?action=add_resume">ADD RESUME</a></button></p>
-
-    </section>
-
+    </div>
+    </div>
     </body>
     </html>
 <?php include "footer.php"; ?>

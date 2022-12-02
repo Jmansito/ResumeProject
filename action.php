@@ -6,12 +6,7 @@ if(!isset($_SESSION))
 // Show applicants (mostly for testing for now)
 function get_categories(){
     global $db;
-    $query = 'SELECT Resume.f_name, Resume.l_name, Resume.dob, Resume.email,
-    Resume.phone_number, Resume.previous_job, Resume.previous_job_desc,
-    Resume.previous_job_sd, Resume.previous_job_ed, Resume.skill1,
-    Resume.skill2, Resume.skill3, Resume.profile_pic, Resume.resume_pdf)
-    From Resume
-    ORDER BY Resume.f_name;';
+    $query = 'SELECT * FROM `resume` WHERE `user_id` > 0';
 
     $statement = $db->prepare($query);
     $statement ->execute();
@@ -121,4 +116,59 @@ function is_valid_user($user_name, $password) {
     else {
         return 0;
     }
+}
+
+function delete_resume($resume_id){
+    global $db;
+    $query = 'DELETE FROM resume
+              WHERE resume_id = :resume_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':resume_id', $resume_id);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+function update_resume($resume_id,$f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
+                    $previous_job_ed, $skill1, $skill2, $skill3, $profile_pic, $resume_pdf){
+    global $db;
+    $data = [
+        'resume_id' => $resume_id,
+        'f_name' => $f_name,
+        'l_name' => $l_name,
+        'dob' => $dob,
+        'email' => $email,
+        'phone_number' => $phone_number,
+        'previous_job' => $previous_job,
+        'previous_job_desc' => $previous_job_desc,
+        'previous_job_sd' => $previous_job_sd,
+        'previous_job_ed' => $previous_job_ed,
+        'skill1' => $skill1,
+        'skill2' => $skill2,
+        'skill3' => $skill3,
+        'profile_pic' => $profile_pic,
+        'resume_pdf' => $resume_pdf,
+
+    ];
+
+    $query = "UPDATE resume SET f_name = :f_name,l_name = :l_name,dob = :dob 
+                ,email = :email,phone_number = :phone_number,previous_job = :previous_job ,previous_job_desc = :previous_job_desc
+                ,previous_job_sd = :previous_job_sd ,previous_job_ed = :previous_job_ed ,skill1 = :skill1,skill2 = :skill2
+                ,skill3 = :skill3,profile_pic = :profile_pic,resume_pdf = :resume_pdf
+        WHERE resume_id = :resume_id";
+
+    $statement = $db->prepare($query);
+    $statement->execute($data);
+    $statement->closeCursor();
+
+}
+
+function get_resume($resume_id){
+    global $db;
+    $query= "SELECT * FROM `resume` WHERE `resume`.`resume_id` = '$resume_id'";
+
+    $statement = $db->prepare($query);
+    $statement ->execute();
+    $resume = $statement-> fetchAll();
+    $statement->closeCursor();
+    return $resume;
 }
