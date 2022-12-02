@@ -1,4 +1,9 @@
-<?php include "header.php"; ?>
+<?php
+if(!isset($_SESSION))
+{
+    session_start();
+}
+include "header.php"; ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -27,24 +32,24 @@
                             <p></p>
                             <form action="controller.php" method="post">
                                 <input type="hidden" name="action" value="show_update_resume">
-                                <input type="hidden" name="user_id" value="<?php echo $applicant['resume_id']; ?>">
+                                <input type="hidden" name="resume_id" value="<?php echo $applicant['resume_id']; ?>">
                                 <input type="submit" value="Update">
                             </form>
                             <p></p>
                             <form action="controller.php" method="post">
                                 <input type="hidden" name="action" value="delete_resume">
-                                <input type="hidden" name="user_id" value="<?php echo $applicant['resume_id']; ?>">
+                                <input type="hidden" name="resume_id" value="<?php echo $applicant['resume_id']; ?>">
                                 <input type="submit" value="Delete">
                             </form>
+                            <p></p>
                         </div>
                         <p></p>
                     </div>
-
                     <?php endforeach;?>
                 </div>
-
     </div>
     </div>
     </body>
     </html>
+
 <?php include "footer.php"; ?>

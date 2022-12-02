@@ -126,6 +126,7 @@ function delete_resume($resume_id){
     $statement->bindValue(':resume_id', $resume_id);
     $statement->execute();
     $statement->closeCursor();
+    header("location:applicants_list.php");
 }
 
 function update_resume($resume_id,$f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,

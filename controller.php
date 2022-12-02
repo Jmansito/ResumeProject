@@ -88,7 +88,7 @@ else if ($action == 'register') {
 else if ($action == 'delete_resume'){
     $resume_id = filter_input (INPUT_POST, 'resume_id', FILTER_VALIDATE_INT);
     delete_resume($resume_id);
-    header('Location: applicants_list.php');
+    header('Location: home.php');
 }
 
 else if ($action == 'show_update_resume'){

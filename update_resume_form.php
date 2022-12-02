@@ -1,24 +1,5 @@
 <?php include 'header.php'; ?>
-<?php
-// we can import all the resume variables here if we want them filled with current values
-$resume_id = filter_input (INPUT_POST, 'resume_id', FILTER_VALIDATE_INT);
-$f_name = filter_input(INPUT_POST, 'f_name');
-$l_name = filter_input(INPUT_POST, 'l_name');
-$dob = filter_input(INPUT_POST, 'dob');
-$email = filter_input(INPUT_POST, 'email');
-$phone_number = filter_input(INPUT_POST, 'phone_number', FILTER_VALIDATE_INT);
-$previous_job = filter_input(INPUT_POST, 'previous_job' );
-$previous_job_desc = filter_input(INPUT_POST, 'previous_job_desc');
-$previous_job_sd = filter_input(INPUT_POST, 'previous_job_sd' );
-$previous_job_ed = filter_input(INPUT_POST, 'previous_job_ed' );
-$skill1 = filter_input(INPUT_POST, 'skill1' );
-$skill2 = filter_input(INPUT_POST, 'skill2' );
-$skill3 = filter_input(INPUT_POST, 'skill3' );
 
-
-//TODO IMPORTANT, if we want the placeholders to show, we will need a new css for all of this. Current css hides placeholder for formatting
-
-?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
