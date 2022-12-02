@@ -69,7 +69,7 @@
                     <input type="file" class="file_input" name ="resume_pdf" >
                     <label for="" class="file_label">Resume PDF</label>
                 </div>
-                <input type="submit" class="login_button" value="Add Resume" />
+                <input type="submit" class="login_button" value="Update" />
 
             </form>
         </div>
