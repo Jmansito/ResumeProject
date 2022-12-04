@@ -50,7 +50,7 @@ else if($action == 'add_resume_form'){
 
     add_resume($f_name, $l_name,$dob, $email, $phone_number, $previous_job, $previous_job_desc,$previous_job_sd,
         $previous_job_ed, $skill1, $skill2, $skill3, $profile_pic, $resume_pdf);
-        header('Location: home.php'); //TODO Change this to redirect to view applicants
+        header('Location: home.php');
 
 }
 
